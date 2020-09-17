@@ -1,9 +1,8 @@
 import React from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
-import "./App.css";
-import Todos from "./components/Todos";
 import OnlineUsers from "./components/OnlineUsers";
+import MovingThing from "./components/MovingThing";
 
 const createApolloClient = () => {
   return new ApolloClient({
@@ -33,6 +32,7 @@ export default function App() {
       <div className="relative min-h-screen flex">
         {/* tug o war dot */}
         <div className="absolute inset-0 flex items-center justify-center">
+          <MovingThing />
           <div className="w-8 h-8 bg-green-400 rounded-full shadow-xl"></div>
         </div>
 
@@ -44,7 +44,6 @@ export default function App() {
           red team
         </div>
       </div>
-      <Todos />
     </ApolloProvider>
   );
 }
